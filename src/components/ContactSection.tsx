@@ -13,6 +13,7 @@ import {
   Layers,
 } from 'lucide-react';
 import { BUSINESS_INFO } from '../data/salonData';
+import { WhatsAppIcon } from './icons/WhatsAppIcon';
 
 export const ContactSection: React.FC = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -233,29 +234,43 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Quick Contact Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+              <a
+                href={`https://wa.me/${BUSINESS_INFO.whatsappRaw}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3.5 rounded-lg bg-emerald-950/30 border border-emerald-800/60 hover:border-emerald-500 transition-colors block"
+              >
+                <div className="flex items-center gap-1.5 text-emerald-400 font-semibold mb-1">
+                  <WhatsAppIcon className="w-4 h-4 text-emerald-400" />
+                  <span>WhatsApp</span>
+                </div>
+                <div className="font-mono text-xs text-white font-medium truncate">{BUSINESS_INFO.whatsapp}</div>
+                <div className="text-[10px] text-emerald-300/80 mt-0.5">Instant booking chat</div>
+              </a>
+
               <a
                 href={`tel:${BUSINESS_INFO.phone.replace(/[^0-9+]/g, '')}`}
-                className="p-4 rounded-lg bg-neutral-900/70 border border-neutral-800 hover:border-amber-500/50 transition-colors block"
+                className="p-3.5 rounded-lg bg-neutral-900/70 border border-neutral-800 hover:border-amber-500/50 transition-colors block"
               >
-                <div className="flex items-center gap-2 text-amber-400 font-semibold mb-1">
+                <div className="flex items-center gap-1.5 text-amber-400 font-semibold mb-1">
                   <Phone className="w-4 h-4" />
                   <span>Call Studio</span>
                 </div>
-                <div className="font-mono text-sm text-white font-medium">{BUSINESS_INFO.phone}</div>
-                <div className="text-[11px] text-neutral-400 mt-0.5">Direct phone enquiries</div>
+                <div className="font-mono text-xs text-white font-medium truncate">{BUSINESS_INFO.phone}</div>
+                <div className="text-[10px] text-neutral-400 mt-0.5">Direct phone enquiries</div>
               </a>
 
               <a
                 href={`sms:${BUSINESS_INFO.mobileSMS.replace(/[^0-9+]/g, '')}`}
-                className="p-4 rounded-lg bg-neutral-900/70 border border-neutral-800 hover:border-amber-500/50 transition-colors block"
+                className="p-3.5 rounded-lg bg-neutral-900/70 border border-neutral-800 hover:border-amber-500/50 transition-colors block"
               >
-                <div className="flex items-center gap-2 text-amber-400 font-semibold mb-1">
+                <div className="flex items-center gap-1.5 text-amber-400 font-semibold mb-1">
                   <Mail className="w-4 h-4" />
-                  <span>SMS Concierge</span>
+                  <span>SMS</span>
                 </div>
-                <div className="font-mono text-sm text-white font-medium">{BUSINESS_INFO.mobileSMS}</div>
-                <div className="text-[11px] text-neutral-400 mt-0.5">Quick booking changes</div>
+                <div className="font-mono text-xs text-white font-medium truncate">{BUSINESS_INFO.mobileSMS}</div>
+                <div className="text-[10px] text-neutral-400 mt-0.5">Quick booking changes</div>
               </a>
             </div>
 
