@@ -12,6 +12,8 @@ All brand assets, photos, artisan portraits, and styling gallery images are loca
 
 Because Vite automatically copies everything from `/public` directly into `/dist` on production build (`npm run build`), **100% of your images, logos, and photos will load seamlessly on Vercel without broken links**.
 
+An `.npmrc` file with `legacy-peer-deps=true` is included in the root directory to guarantee `npm install` completes cleanly on Vercel without `ERESOLVE` dependency conflicts.
+
 ---
 
 ### Step 1: Push to GitHub
