@@ -1,0 +1,6 @@
+{
+  "name": "Kingsley & Co. | Barber & Hair Salon Studio Melbourne",
+  "description": "Premier Australian barbershop and luxury hair salon in South Yarra, Melbourne. Master barbering, skin fades, precision hair styling, balayage, and online appointment bookings in AUD.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
