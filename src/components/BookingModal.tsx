@@ -117,14 +117,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     // Australian phone validation: 04XX XXX XXX or (0X) XXXX XXXX or +61...
     const clean = val.replace(/[\s-]/g, '');
     if (clean.length < 8) {
-      setPhoneError('Please enter a valid mobile or phone number (e.g. 0412 345 678 or +91 63834 38429).');
+      setPhoneError('Please enter a valid mobile or phone number (e.g. 0412 345 678 or +61 434 343 997).');
       return false;
     }
     setPhoneError('');
     return true;
   };
 
-  // Generate formatted WhatsApp message URL targeting +91 63834 38429
+  // Generate formatted WhatsApp message URL targeting +61 434 343 997
   const buildWhatsAppBookingUrl = (booking: BookingAppointment) => {
     const text =
       `💈 *NEW APPOINTMENT BOOKING - NOTORIOUS STYLE* 💈\n\n` +
@@ -176,7 +176,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     setConfirmedBooking(newBooking);
     onBookingConfirmed(newBooking);
 
-    // Auto-dispatch booking message to WhatsApp number 91+ 6383438429
+    // Auto-dispatch booking message to WhatsApp number +61 434 343 997
     try {
       const waUrl = buildWhatsAppBookingUrl(newBooking);
       const link = document.createElement('a');
@@ -660,7 +660,7 @@ END:VCALENDAR`;
                         setClientPhone(e.target.value);
                         if (phoneError) validatePhone(e.target.value);
                       }}
-                      placeholder="e.g. 0412 345 678 or +91 63834 38429"
+                      placeholder="e.g. 0412 345 678 or +61 434 343 997"
                       className="w-full px-3 py-2 text-sm bg-neutral-950 border border-neutral-800 rounded-md text-white placeholder-neutral-500 focus:outline-none focus:border-amber-400"
                     />
                     {phoneError && <p className="text-[11px] text-red-400 mt-1">{phoneError}</p>}
@@ -715,7 +715,7 @@ END:VCALENDAR`;
                   <div className="space-y-0.5">
                     <span className="font-semibold text-emerald-300">Instant WhatsApp Booking Notification</span>
                     <p className="text-[11px] text-emerald-300/80 leading-relaxed">
-                      Your appointment details, reference code, and notes will be sent directly to Notorious Style WhatsApp (<span className="font-mono text-emerald-200 font-semibold">+91 63834 38429</span>).
+                      Your appointment details, reference code, and notes will be sent directly to Notorious Style WhatsApp (<span className="font-mono text-emerald-200 font-semibold">{BUSINESS_INFO.whatsapp}</span>).
                     </p>
                   </div>
                 </div>
@@ -819,7 +819,7 @@ END:VCALENDAR`;
                         <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                       </div>
                       <div className="font-mono text-[11px] text-neutral-300">
-                        WhatsApp: <strong className="text-emerald-400 font-bold">+91 63834 38429</strong>
+                        WhatsApp: <strong className="text-emerald-400 font-bold">{BUSINESS_INFO.whatsapp}</strong>
                       </div>
                     </div>
                   </div>
@@ -839,7 +839,7 @@ END:VCALENDAR`;
                   className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold text-neutral-950 bg-emerald-400 hover:bg-emerald-300 rounded-md transition-all shadow-md active:scale-[0.99]"
                 >
                   <WhatsAppIcon className="w-4 h-4 text-neutral-950" />
-                  <span>Open WhatsApp & Send Details (+91 63834 38429)</span>
+                  <span>Open WhatsApp & Send Details ({BUSINESS_INFO.whatsapp})</span>
                   <ExternalLink className="w-3.5 h-3.5 ml-0.5" />
                 </a>
               </div>
